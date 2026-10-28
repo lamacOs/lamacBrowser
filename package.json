@@ -1,0 +1,13 @@
+{
+  "name": "lamacbrowser",
+  "version": "1.0.0",
+  "description": "Ein eigener Desktop-Browser mit Chromium",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^38.0.0"
+  }
+}
