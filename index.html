@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self';"
+  >
+  <title>lamacBrowser</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="toolbar">
+    <div class="brand">
+      <div class="logo">L</div>
+      <div class="brand-text">
+        <strong>lamacBrowser</strong>
+        <small>Explore without limits.</small>
+      </div>
+      <button id="new-tab" class="new-tab" title="Neuer Tab">+</button>
+    </div>
+
+    <div id="tabs" class="tabs"></div>
+
+    <nav class="navigation">
+      <button id="back" title="Zurück">←</button>
+      <button id="forward" title="Vorwärts">→</button>
+      <button id="reload" title="Neu laden">↻</button>
+
+      <form id="address-form">
+        <span class="lock">◎</span>
+        <input
+          id="address"
+          type="text"
+          placeholder="Website oder Suchbegriff eingeben"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button type="button" id="bookmark" title="Lesezeichen">☆</button>
+      </form>
+
+      <button id="go" class="go">Los</button>
+    </nav>
+
+    <div class="bookmarks">
+      <span class="bookmark-label">Lesezeichen</span>
+      <div id="bookmark-list"></div>
+    </div>
+  </header>
+
+  <main id="empty-state">
+    <div class="welcome-icon">◎</div>
+    <h1>Das Internet. Dein Browser.</h1>
+    <p>Gib eine Adresse ein oder suche direkt über die Adressleiste.</p>
+    <button id="start-search">Google öffnen ↗</button>
+  </main>
+
+  <footer>
+    <span id="status">Bereit</span>
+    <span>lamacBrowser · 2026</span>
+  </footer>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
