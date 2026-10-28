@@ -1,0 +1,286 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b1120;
+  --panel: #111b2d;
+  --panel2: #19263b;
+  --border: #293952;
+  --accent: #01c7fc;
+  --text: #f4f8ff;
+  --muted: #91a4bf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  color: var(--text);
+  background: var(--bg);
+  font: 13px Inter, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 1px solid var(--border);
+  background: var(--panel2);
+  color: var(--text);
+  border-radius: 8px;
+  min-width: 34px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.toolbar {
+  position: relative;
+  z-index: 10;
+  height: 142px;
+  padding: 6px 12px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 26px;
+  width: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #07111f;
+  font-weight: 900;
+  font-size: 17px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.brand-text strong {
+  font-size: 13px;
+}
+
+.brand-text small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.new-tab {
+  margin-left: auto;
+  font-size: 19px;
+}
+
+.tabs {
+  display: flex;
+  gap: 5px;
+  height: 25px;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+  max-width: 190px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: #0c1525;
+  cursor: pointer;
+  flex: 0 1 170px;
+}
+
+.tab.active {
+  background: #24334b;
+  border-color: #344b68;
+}
+
+.tab-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.tab-close {
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.navigation > button {
+  height: 34px;
+  font-size: 17px;
+}
+
+#address-form {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 9px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+#address-form:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px #01c7fc20;
+}
+
+.lock {
+  color: var(--accent);
+  font-size: 18px;
+}
+
+#address {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+}
+
+#bookmark {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: var(--accent);
+}
+
+.go {
+  padding: 0 13px;
+  height: 36px;
+  background: var(--accent);
+  color: #06111d;
+  border: none;
+  font-weight: 700;
+}
+
+.bookmarks {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 18px;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.bookmark-label {
+  color: var(--muted);
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+#bookmark-list {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  min-width: 0;
+}
+
+.bookmark-item {
+  height: 20px;
+  max-width: 150px;
+  padding: 0 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+}
+
+main {
+  display: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 28px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel);
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+}
+
+@media (max-width: 700px) {
+  .toolbar {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .tab {
+    min-width: 75px;
+  }
+
+  .bookmark-label {
+    display: none;
+  }
+
+  .navigation {
+    gap: 3px;
+  }
+
+  .navigation > button {
+    min-width: 29px;
+    padding: 0 6px;
+  }
+
+  .go {
+    padding: 0 8px !important;
+  }
+}
